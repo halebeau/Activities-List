@@ -1,24 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="main.css">
-<title>Practice Manipulating the DOM</title>
+    <title>Task Maker</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div class="container">
-    <h1></h1>
-    <p class="desc"></p>
-    <ul>
-        <li><input> Play music</li>
-        <li><input> Swim</li>
-        <li><input> Bike ride</li>
-        <li><input> Code</li>
-    </ul>
-    <div class="extra">
-        <p>This is extra content you need to delete.</p>
-    </div>
-    </div>
-    <script src="scripts.js"></script>
-</body>
+    <h1 id="myHeading">Task Maker</h1>
+        <p>Let's make some tasks</p>
+        <button id="toggleList">Hide List</button>
+    <div class="list">
+        <p class="description">Things that are purple:</p>
+        <input type="text" class="description" />
+        <button class="description">Change description</button>
+            <ul>
+                <li>grapes
+                    <button class="up">&#8679;</button>
+                    <button class="down">&#8681;</button>
+                    <button class="remove">&#10006;</button>
+                </li>
+                <li>amethyst
+                    <button class="up">&#8679;</button>
+                    <button class="down">&#8681;</button>
+                    <button class="remove">&#10006;</button>
+                </li>
+                <li>lavender
+                    <button class="up">&#8679;</button>
+                    <button class="down">&#8681;</button>
+                    <button class="remove">&#10006;</button>
+                </li>
+                <li>plums
+                    <button class="up">&#8679;</button>
+                    <button class="down">&#8681;</button>
+                    <button class="remove">&#10006;</button>
+                </li>
+            </ul>
+            <input type="text" class="addItemInput" />
+            <button class="addItemButton">Add item</button>
+        </div>
+    <script src="app.js"></script>
+    </body>
 </html>
