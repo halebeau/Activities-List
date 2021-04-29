@@ -7,6 +7,9 @@ const listUl = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
 const lis = listUl.children;
+const firstListItem = listUl.firstElementChild;
+const lastListItem = listUl.lastElementChild;
+
 
 function attachListItemsButtons(li) {
   let up = document.createElement('button');
@@ -28,6 +31,21 @@ function attachListItemsButtons(li) {
 for (let i = 0; i < lis.length; i += 1) {
   attachListItemsButtons(lis[i]);
 }
+
+function hideUpDownBtns() {
+  for (let i = 0; i < lis.length; i++) {
+    if (!lis[i].previousElementSibling) {
+      lis[i].childNodes[1].style.visibility = 'hidden';
+    } else if (!lis[i].nextElementSibling){
+      lis[i].childNodes[2].style.display = 'none';
+    } else {
+      lis[i].childNodes[1].style.visibility = 'visible';
+      lis[i].childNodes[2].style.display = 'flex';
+    }
+  }
+}
+
+hideUpDownBtns();
 
 listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
@@ -52,6 +70,7 @@ listUl.addEventListener('click', (event) => {
         ul.insertBefore(nextLi, li);
       }
     }
+    hideUpDownBtns();
   }
 });
 
@@ -77,6 +96,7 @@ addItemButton.addEventListener('click', () => {
   attachListItemsButtons(li);
   ul.appendChild(li);
   addItemInput.value = '';
+  hideUpDownBtns();
 });
 
 
