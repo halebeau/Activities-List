@@ -6,6 +6,28 @@ const descriptionButton = document.querySelector('button.description');
 const listUl = listDiv.querySelector('ul');
 const addItemInput = document.querySelector('input.addItemInput');
 const addItemButton = document.querySelector('button.addItemButton');
+const lis = listUl.children;
+
+function attachListItemsButtons(li) {
+  let up = document.createElement('button');
+  up.className = 'up';
+  up.textContent = 'Up';
+  li.appendChild(up);
+
+  let down = document.createElement('button');
+  down.className = 'down';
+  down.textContent = 'Down';
+  li.appendChild(down);
+
+  let remove = document.createElement('button');
+  remove.className = 'remove';
+  remove.textContent = 'Remove';
+  li.appendChild(remove);
+}
+
+for (let i = 0; i < lis.length; i += 1) {
+  attachListItemsButtons(lis[i]);
+}
 
 listUl.addEventListener('click', (event) => {
   if (event.target.tagName == 'BUTTON') {
@@ -52,6 +74,7 @@ addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
   let li = document.createElement('li');
   li.textContent = addItemInput.value;
+  attachListItemsButtons(li);
   ul.appendChild(li);
   addItemInput.value = '';
 });
